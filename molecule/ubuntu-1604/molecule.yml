@@ -13,3 +13,4 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: host
+    privileged: true
