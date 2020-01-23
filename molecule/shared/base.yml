@@ -1,0 +1,26 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: ../shared/requirements.yml
+
+driver:
+  name: docker
+
+lint:
+  name: yamllint
+
+provisioner:
+  name: ansible
+  playbooks:
+    cleanup: ../shared/cleanup.yml
+    converge: ../shared/playbook.yml
+    prepare: ../shared/prepare.yml
+  lint:
+    name: ansible-lint
+
+verifier:
+  name: testinfra
+  directory: ../shared/tests/
+  lint:
+    name: flake8

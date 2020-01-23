@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: ansible-role-pmm-client
+      pmm_client_server_insecure_tls: true
+      pmm_client_services:
+        - type: mysql
+          name: service-mysql
+          flags: "--username=root --password=root"
+        - type: mongodb
+          name: service-mongodb
+          flags: "--port=27017"

@@ -1,0 +1,11 @@
+---
+pmm_client_server_url: https://admin:admin@127.0.0.1:443
+pmm_client_server_insecure_tls: false
+
+pmm_client_services: []
+# - type: mysql
+#   name: "{{ ansible_hostname }}-mysql"
+#   flags: "--username=root --password=root"
+# - type: mongodb
+#   name: "{{ ansible_hostname }}-mongodb"
+#   flags: "--port=27017"

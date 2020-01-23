@@ -1,0 +1,15 @@
+---
+scenario:
+  name: debian-10
+
+platforms:
+  - name: ansible-role-pmm-client-debian-10
+    image: jrei/systemd-debian:10
+    command: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: host

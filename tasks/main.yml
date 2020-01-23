@@ -1,0 +1,48 @@
+---
+- name: Install percona-release
+  apt:
+    deb: "{{ pmm_client_percona_release }}"
+
+- name: Install PMM client
+  apt:
+    name: pmm2-client
+    state: present
+    update_cache: true
+
+- name: Ensure pmm-agent is running
+  service:
+    enabled: true
+    name: pmm-agent
+    state: started
+
+- name: Check if client is already connected to a PMM server
+  command: pmm-admin status
+  changed_when: false
+  failed_when: false
+  no_log: true
+  register: _pmm_status
+
+- name: Connect PMM client to PMM server
+  command: >
+    pmm-admin config
+      --server-url {{ pmm_client_server_url }}
+      {{ "--server-insecure-tls" if pmm_client_server_insecure_tls else "" }}
+  when: _pmm_status.rc > 0
+
+- name: Check if a service is already configured
+  command: pmm-admin list --json
+  changed_when: false
+  ignore_errors: true
+  register: _pmm_services
+
+- name: Set variable needed later
+  set_fact:
+    _pmm_services: "{{ (_pmm_services.stdout | from_json).service }}"
+
+- name: Configure PMM services
+  command: >
+    pmm-admin add {{ item.type }}
+      {{ item.flags | d(omit) }}
+      {{ item.name }}
+  loop: "{{ pmm_client_services }}"
+  when: item.name not in _pmm_services | map(attribute="service_name") | list
