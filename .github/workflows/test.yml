@@ -31,5 +31,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -q ansible~=${{ matrix.ansible }} molecule docker
 
+      - name: Stop MySQL on GitHub Runner
+        run: systemctl stop mysql
+
       - name: Run Molecule
         run: molecule --base-config molecule/shared/base.yml test --scenario-name ${{ matrix.scenario }}
