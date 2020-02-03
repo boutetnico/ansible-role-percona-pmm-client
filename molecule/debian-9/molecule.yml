@@ -4,7 +4,7 @@ scenario:
 
 platforms:
   - name: ansible-role-pmm-client-debian-9
-    image: jrei/systemd-debian:9
+    image: debian:9
     command: /lib/systemd/systemd
     tmpfs:
       - /run

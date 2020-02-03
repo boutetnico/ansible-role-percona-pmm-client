@@ -4,7 +4,7 @@ scenario:
 
 platforms:
   - name: ansible-role-pmm-client-ubuntu-1804
-    image: jrei/systemd-ubuntu:18.04
+    image: ubuntu:18.04
     command: /lib/systemd/systemd
     tmpfs:
       - /run
