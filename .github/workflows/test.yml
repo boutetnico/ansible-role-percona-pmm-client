@@ -34,5 +34,12 @@ jobs:
       - name: Stop MySQL on GitHub Runner
         run: sudo systemctl stop mysql
 
+      - name: Display versions
+        run: |
+          python -c "import sys; print(sys.version)"
+          pip --version
+          ansible --version
+          molecule --version
+
       - name: Run Molecule
         run: molecule --base-config molecule/shared/base.yml test --scenario-name ${{ matrix.scenario }}
