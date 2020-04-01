@@ -1,0 +1,10 @@
+---
+- name: Install percona-release
+  apt:
+    deb: "{{ pmm_client_percona_release }}"
+
+- name: Install PMM client
+  apt:
+    name: pmm2-client
+    state: "{{ pmm_client_package_state }}"
+    update_cache: true
