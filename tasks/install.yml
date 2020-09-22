@@ -6,5 +6,5 @@
 - name: Install PMM client
   apt:
     name: pmm2-client
-    state: "{{ pmm_client_package_state }}"
+    state: "{{ pmm_client_package_state }}"
     update_cache: true
