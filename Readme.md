@@ -1,12 +1,20 @@
+[![tests](https://github.com/boutetnico/ansible-role-pmm-client/workflows/Test%20ansible%20role/badge.svg)](https://github.com/boutetnico/ansible-role-pmm-client/actions?query=workflow%3A%22Test+ansible+role%22)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-boutetnico.pmm_client-blue.svg)](https://galaxy.ansible.com/boutetnico/pmm_client)
+
 ansible-role-pmm-client
 =======================
 
-This role installs PMM client.
+This role installs [PMM client](https://www.percona.com/doc/percona-monitoring-and-management/2.x/manage/index-using-pmm-client.html).
+
+It is part of a family of Ansible roles allowing to setup and configure PMM:
+
+- [ansible-role-pmm-server](https://github.com/boutetnico/ansible-role-pmm-server)
+- [ansible-role-pmm-client](https://github.com/boutetnico/ansible-role-pmm-client)
 
 Requirements
 ------------
 
-Ansible 2.6 or newer.
+Ansible 2.7 or newer.
 
 Supported Platforms
 -------------------

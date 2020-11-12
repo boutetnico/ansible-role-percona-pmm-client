@@ -1,9 +1,10 @@
 ---
 galaxy_info:
+  role_name: pmm-client
   author: Nicolas Boutet
   description: Install and configure PMM client.
   license: MIT
-  min_ansible_version: 2.6
+  min_ansible_version: 2.7
   platforms:
     - name: Ubuntu
       versions:
@@ -11,9 +12,16 @@ galaxy_info:
         - focal
     - name: Debian
       versions:
-        - stretch
         - buster
+        - stretch
   galaxy_tags:
+    - client
+    - management
+    - metrics
+    - mongodb
+    - monitoring
+    - mysql
     - percona
+    - performance
     - pmm
 dependencies: []
