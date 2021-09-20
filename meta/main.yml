@@ -1,6 +1,7 @@
 ---
 galaxy_info:
-  role_name: pmm-client
+  role_name: pmm_client
+  namespace: boutetnico
   author: Nicolas Boutet
   description: Install and configure PMM client.
   license: MIT
