@@ -59,8 +59,8 @@ Testing
 
 ## Debian
 
-    molecule --base-config molecule/shared/base.yml test --scenario-name debian-9
     molecule --base-config molecule/shared/base.yml test --scenario-name debian-10
+    molecule --base-config molecule/shared/base.yml test --scenario-name debian-11
 
 ## Ubuntu
 
