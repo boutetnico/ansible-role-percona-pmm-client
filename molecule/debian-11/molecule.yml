@@ -1,7 +1,7 @@
 ---
 platforms:
-  - name: ansible-role-pmm-client-debian-9
-    image: debian:9
+  - name: ansible-role-pmm-client-debian-11
+    image: debian:11
     command: /lib/systemd/systemd
     tmpfs:
       - /run
