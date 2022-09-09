@@ -63,4 +63,4 @@
         state: started
 
   roles:
-    - role: boutetnico.pmm_server
+    - role: ansible-role-pmm-server
