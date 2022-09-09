@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   roles:
-    - role: ansible-role-pmm-client
+    - role: boutetnico.pmm_client
       pmm_client_server_insecure_tls: true
       pmm_client_services:
         - type: mysql
