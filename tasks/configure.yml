@@ -1,26 +1,26 @@
 ---
 - name: Ensure pmm-agent is running
-  service:
+  ansible.builtin.service:
     enabled: true
     name: pmm-agent
     state: started
 
 - name: Check if client is already connected to a PMM server
-  command: pmm-admin status
+  ansible.builtin.command: pmm-admin status
   changed_when: false
   failed_when: false
   no_log: true
   register: _pmm_status
 
 - name: Connect PMM client to PMM server
-  command: >
+  ansible.builtin.command: >
     pmm-admin config
       --server-url {{ pmm_client_server_url }}
       {{ "--server-insecure-tls" if pmm_client_server_insecure_tls else "" }}
   when: _pmm_status.rc > 0
 
 - name: Check if a service is already configured
-  command: pmm-admin list --json
+  ansible.builtin.command: pmm-admin list --json
   changed_when: false
   ignore_errors: true
   register: _pmm_services
@@ -30,7 +30,7 @@
     _pmm_services: "{{ (_pmm_services.stdout | from_json).service }}"
 
 - name: Configure PMM services
-  command: >
+  ansible.builtin.command: >
     pmm-admin add {{ item.type }}
       {{ item.flags | d(omit) }}
       {{ item.name }}
