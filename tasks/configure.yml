@@ -6,28 +6,33 @@
     state: started
 
 - name: Check if client is already connected to a PMM server
-  ansible.builtin.command: pmm-admin status
+  ansible.builtin.command: pmm-admin status --json
   changed_when: false
   failed_when: false
   no_log: true
   register: _pmm_status
+
+- name: Load PMM status into an Ansible variable
+  set_fact:
+    _pmm_status: "{{ (_pmm_status.stdout | from_json) }}"
 
 - name: Connect PMM client to PMM server
   ansible.builtin.command: >
     pmm-admin config
       --server-url {{ pmm_client_server_url }}
       {{ "--server-insecure-tls" if pmm_client_server_insecure_tls else "" }}
-  when: _pmm_status.rc > 0
+  when:
+    - _pmm_status.pmm_agent_status.connected is not defined or not _pmm_status.pmm_agent_status.connected
 
 - name: Check if a service is already configured
-  ansible.builtin.command: pmm-admin list --json
+  ansible.builtin.shell: pmm-admin list --json 2>&1
   changed_when: false
   ignore_errors: true
-  register: _pmm_services
+  register: _pmm_list
 
-- name: Set variable needed later
+- name: Load PMM list into an Ansible variable
   set_fact:
-    _pmm_services: "{{ (_pmm_services.stdout | from_json).service }}"
+    _pmm_list: "{{ (_pmm_list.stdout | from_json) }}"
 
 - name: Configure PMM services
   ansible.builtin.command: >
@@ -35,4 +40,4 @@
       {{ item.flags | d(omit) }}
       {{ item.name }}
   loop: "{{ pmm_client_services }}"
-  when: item.name not in _pmm_services | map(attribute="service_name") | list
+  when: _pmm_list.service is not defined or (item.name not in _pmm_list.service | map(attribute="service_name") | list)
