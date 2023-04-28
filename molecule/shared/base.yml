@@ -3,14 +3,11 @@ dependency:
   name: galaxy
   options:
     role-file: molecule/shared/requirements.yml
+  env:
+    ANSIBLE_ROLES_PATH: ../shared
 
 driver:
   name: docker
-
-lint: |
-    yamllint .
-    ansible-lint
-    flake8
 
 provisioner:
   name: ansible

@@ -4,22 +4,22 @@
   connection: local
   gather_facts: false
   tasks:
-    - name: delete pmm-server container
-      docker_container:
+    - name: Delete pmm-server container
+      community.docker.docker_container:
         name: pmm-server
         state: absent
 
-    - name: delete pmm-data container
-      docker_container:
+    - name: Delete pmm-data container
+      community.docker.docker_container:
         name: pmm-data
         state: absent
 
-    - name: delete pmm-mysql container
-      docker_container:
+    - name: Delete pmm-mysql container
+      community.docker.docker_container:
         name: pmm-mysql
         state: absent
 
-    - name: delete pmm-mongo container
-      docker_container:
+    - name: Delete pmm-mongo container
+      community.docker.docker_container:
         name: pmm-mongo
         state: absent
