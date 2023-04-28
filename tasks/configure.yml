@@ -13,7 +13,7 @@
   register: _pmm_status
 
 - name: Load PMM status into an Ansible variable
-  set_fact:
+  ansible.builtin.set_fact:
     _pmm_status: "{{ (_pmm_status.stdout | from_json) }}"
 
 - name: Connect PMM client to PMM server
@@ -21,6 +21,7 @@
     pmm-admin config
       --server-url {{ pmm_client_server_url }}
       {{ "--server-insecure-tls" if pmm_client_server_insecure_tls else "" }}
+  changed_when: false
   when:
     - _pmm_status.pmm_agent_status.connected is not defined or not _pmm_status.pmm_agent_status.connected
 
@@ -31,7 +32,7 @@
   register: _pmm_list
 
 - name: Load PMM list into an Ansible variable
-  set_fact:
+  ansible.builtin.set_fact:
     _pmm_list: "{{ (_pmm_list.stdout | from_json) }}"
 
 - name: Configure PMM services
@@ -40,4 +41,5 @@
       {{ item.flags | d(omit) }}
       {{ item.name }}
   loop: "{{ pmm_client_services }}"
+  changed_when: false
   when: _pmm_list.service is not defined or (item.name not in _pmm_list.service | map(attribute="service_name") | list)
