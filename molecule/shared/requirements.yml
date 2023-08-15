@@ -1,3 +1,7 @@
 ---
-- src: https://github.com/boutetnico/ansible-role-pmm-server.git
-  name: boutetnico.pmm_server
+roles:
+  - src: https://github.com/boutetnico/ansible-role-pmm-server.git
+    name: boutetnico.pmm_server
+
+collections:
+  - community.docker
