@@ -10,7 +10,7 @@
       community.general.docker_container:
         env:
           MYSQL_ROOT_PASSWORD: root
-        image: percona:latest
+        image: percona/percona-server:8.3.0-1.1-multi
         name: pmm-mysql
         ports:
           - "3306:3306"
