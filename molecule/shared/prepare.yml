@@ -11,8 +11,9 @@
       "armhf": "armhf"
       "armv7l": "armhf"
     docker_packages:
-      - python3-docker
       - docker-ce-cli
+      - python3-debian
+      - python3-docker
 
   tasks:
     - name: Configure Docker APT repository
