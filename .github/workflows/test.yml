@@ -45,6 +45,9 @@ jobs:
           ansible --version
           molecule --version
 
+      - name: Install role dependencies
+        run: ansible-galaxy role install -r meta/requirements.yml
+
       - name: Lint code
         run: |
           ansible-lint
