@@ -26,5 +26,4 @@ galaxy_info:
     - performance
     - pmm
 dependencies:
-  - name: boutetnico.percona_release
-    src: git+https://github.com/boutetnico/ansible-role-percona-release.git
+  - role: boutetnico.percona_release
