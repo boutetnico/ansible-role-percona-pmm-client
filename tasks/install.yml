@@ -1,10 +1,6 @@
 ---
-- name: Install percona-release
-  ansible.builtin.apt:
-    deb: "{{ pmm_client_percona_release }}"
-
 - name: Install PMM client
   ansible.builtin.apt:
-    name: pmm2-client
+    name: "{{ pmm_package_name }}"
     state: "{{ pmm_client_package_state }}"
     update_cache: true
