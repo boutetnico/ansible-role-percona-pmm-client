@@ -1,7 +1,5 @@
 ---
 roles:
-  - src: https://github.com/boutetnico/ansible-role-docker.git
-    name: boutetnico.docker
   - src: https://github.com/boutetnico/ansible-role-pmm-server.git
     name: boutetnico.pmm_server
 
