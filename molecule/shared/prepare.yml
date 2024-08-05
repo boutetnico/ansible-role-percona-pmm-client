@@ -18,6 +18,7 @@
       - python3-docker
     docker_packages:
       - docker-ce-cli
+    docker_package_state: present
 
   tasks:
     - name: Install Docker dependencies
