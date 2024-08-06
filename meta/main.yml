@@ -10,6 +10,7 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - jammy
+        - noble
     - name: Debian
       versions:
         - bookworm
@@ -24,4 +25,5 @@ galaxy_info:
     - percona
     - performance
     - pmm
-dependencies: []
+dependencies:
+  - role: boutetnico.percona_release

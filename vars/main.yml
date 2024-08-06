@@ -1,2 +1,4 @@
 ---
 pmm_client_percona_release: https://repo.percona.com/apt/percona-release_latest.generic_all.deb
+
+pmm_package_name: pmm2-client
