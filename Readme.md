@@ -37,7 +37,7 @@ Role Variables
 Dependencies
 ------------
 
-None
+- [percona-release role](https://github.com/boutetnico/ansible-role-percona-release/)
 
 Example Playbook
 ----------------
