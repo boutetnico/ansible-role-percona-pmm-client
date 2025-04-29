@@ -1,5 +1,5 @@
 ---
-pmm_client_server_url: https://admin:admin@127.0.0.1:443
+pmm_client_server_url: https://admin:admin@127.0.0.1:8443
 pmm_client_server_insecure_tls: false
 
 pmm_client_package_state: present

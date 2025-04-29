@@ -27,12 +27,12 @@ Supported Platforms
 Role Variables
 --------------
 
-| Variable                       | Required | Default                             | Choices | Comments                                       |
-|--------------------------------|----------|-------------------------------------|---------|------------------------------------------------|
-| pmm_client_server_url          | true     | `https://admin:admin@127.0.0.1:443` | string  |                                                |
-| pmm_client_server_insecure_tls | true     | `false`                             | bool    |                                                |
-| pmm_client_package_state       | true     | `present`                           | string  | Use `latest` to upgrade PMM client.            |
-| pmm_client_services            | true     | `[]`                                | list    | Services to configure. See `defaults/main.yml`.|
+| Variable                       | Required | Default                              | Choices | Comments                                       |
+|--------------------------------|----------|--------------------------------------|---------|------------------------------------------------|
+| pmm_client_server_url          | true     | `https://admin:admin@127.0.0.1:8443` | string  |                                                |
+| pmm_client_server_insecure_tls | true     | `false`                              | bool    |                                                |
+| pmm_client_package_state       | true     | `present`                            | string  | Use `latest` to upgrade PMM client.            |
+| pmm_client_services            | true     | `[]`                                 | list    | Services to configure. See `defaults/main.yml`.|
 
 Dependencies
 ------------

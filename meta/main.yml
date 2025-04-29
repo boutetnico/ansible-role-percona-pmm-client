@@ -27,3 +27,6 @@ galaxy_info:
     - pmm
 dependencies:
   - role: boutetnico.percona_release
+    vars:
+      percona_release_repositories:
+        - pmm3-client

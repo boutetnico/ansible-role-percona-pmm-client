@@ -7,7 +7,7 @@ import json
     "name",
     [
         ("percona-release"),
-        ("pmm2-client"),
+        ("pmm-client"),
     ],
 )
 def test_packages_are_installed(host, name):
