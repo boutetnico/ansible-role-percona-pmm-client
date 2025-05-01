@@ -1,6 +1,6 @@
 ---
 platforms:
-  - name: ansible-role-pmm-client-ubuntu-2204
+  - name: ansible-role-percona-pmm-client-ubuntu-2204
     image: ubuntu:22.04
     command: /lib/systemd/systemd
     tmpfs:

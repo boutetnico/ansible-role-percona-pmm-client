@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: pmm_client
+  role_name: percona_pmm_client
   namespace: boutetnico
   author: Nicolas Boutet
   description: Install and configure PMM client.

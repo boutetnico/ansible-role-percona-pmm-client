@@ -1,6 +1,6 @@
 ---
 platforms:
-  - name: ansible-role-pmm-client-debian-12
+  - name: ansible-role-percona-pmm-client-debian-12
     image: debian:12
     command: /lib/systemd/systemd
     tmpfs:
