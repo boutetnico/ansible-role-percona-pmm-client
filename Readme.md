@@ -4,7 +4,7 @@
 ansible-role-pmm-client
 =======================
 
-This role installs [PMM client](https://www.percona.com/doc/percona-monitoring-and-management/2.x/manage/index-using-pmm-client.html).
+This role installs [PMM client](https://docs.percona.com/percona-monitoring-and-management/3/).
 
 It is part of a family of Ansible roles allowing to setup and configure PMM:
 
