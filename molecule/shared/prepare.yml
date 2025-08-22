@@ -42,7 +42,7 @@
         update_cache: true
 
     - name: Create a MySQL test container
-      community.general.docker_container:
+      community.docker.docker_container:
         env:
           MYSQL_ROOT_PASSWORD: root
         image: mysql:latest
@@ -52,7 +52,7 @@
         state: started
 
     - name: Create a MongoDB test container
-      community.general.docker_container:
+      community.docker.docker_container:
         image: mongo:latest
         name: pmm-mongo
         ports:
