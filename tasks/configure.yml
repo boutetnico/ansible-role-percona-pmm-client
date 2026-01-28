@@ -22,6 +22,7 @@
       --server-url {{ pmm_client_server_url }}
       {{ "--server-insecure-tls" if pmm_client_server_insecure_tls else "" }}
   changed_when: false
+  no_log: true
   when:
     - _pmm_status.pmm_agent_status.connected is not defined or not _pmm_status.pmm_agent_status.connected
 
