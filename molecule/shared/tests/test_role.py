@@ -60,6 +60,6 @@ def test_pmm_services_registered(host, service_name, service_type):
 
 def test_pmm_config_file_exists(host):
     """Test that PMM agent config file exists."""
-    f = host.file("/usr/local/percona/pmm-agent.yml")
+    f = host.file("/usr/local/percona/pmm/config/pmm-agent.yaml")
     assert f.exists
     assert f.is_file
