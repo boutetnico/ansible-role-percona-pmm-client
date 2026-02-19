@@ -42,5 +42,7 @@
       {{ item.flags | d(omit) }}
       {{ item.name }}
   loop: "{{ pmm_client_services }}"
+  loop_control:
+    label: "{{ item.name }}"
   changed_when: false
   when: _pmm_list.service is not defined or (item.name not in _pmm_list.service | map(attribute="service_name") | list)
